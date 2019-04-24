@@ -1,0 +1,5 @@
+/*Data de Inscrição (ID)*/
+case   when '@{v_tempo_g}{Data}' = 'Data' then "Data de Inscrição"."Sk Data"  when '@{v_tempo_g}' = 'Semana' then "Data de Inscrição"."Id Semana"  when '@{v_tempo_g}' = 'Mês' then "Data de Inscrição"."Id Mês"  when '@{v_tempo_g}' = 'Hora' then "Horário de Inscrição"."Hora" when '@{v_tempo_g}' = 'Ano' then "Data de Inscrição"."Ano" end
+
+/*Data de Inscrição (Char)*/
+case when '@{v_tempo_g}{Data}' = 'Data' then "Data de Inscrição"."Data de Inscrição (Char)"  when '@{v_tempo_g}' = 'Semana' then "Data de Inscrição"."Semana por Mês"  when '@{v_tempo_g}' = 'Mês' then "Data de Inscrição"."Mês"  when '@{v_tempo_g}' = 'Hora' then "Horário de Inscrição"."Hora (Char)" when '@{v_tempo_g}' = 'Ano' then CAST("Data de Inscrição"."Ano" AS char) end
