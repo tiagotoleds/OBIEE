@@ -1,0 +1,38 @@
+--Prova Concluintes
+CASE 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Regular%'    THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Regular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Tradicional', 'Administrativa', 'Judicial')))
+ 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Irregular%'  THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Tradicional', 'Administrativa', 'Judicial')))
+ 
+END
+
+--Tradicional Concluintes
+CASE 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Regular%'    THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Regular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Tradicional')) 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Irregular%'  THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Tradicional')) 
+END
+
+--Administrativa Concluintes
+CASE 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Regular%'    THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Regular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Administrativa')) 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Irregular%'  THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Administrativa'))  
+END
+
+--Judicial Concluintes
+CASE 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Regular%'    THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Regular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Judicial')) 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Irregular%'  THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Judicial')) 
+END
+
+--Dispensa/Declaração Concluintes
+CASE 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Regular%'    THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Regular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Declaração de responsabilidade', 'Dispensa')))
+WHEN '@{v_tp_inscricao}{Regular}' like '%Irregular%'  THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Declaração de responsabilidade', 'Dispensa')))
+END
+
+--Geral Concluintes
+CASE 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Regular%'    THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Regular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Administrativa', 'Declaração de responsabilidade', 'Dispensa', 'Judicial', 'Tradicional'))) 
+WHEN '@{v_tp_inscricao}{Regular}' like '%Irregular%'  THEN FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Administrativa', 'Declaração de responsabilidade', 'Dispensa', 'Judicial', 'Tradicional'))) 
+END
+
