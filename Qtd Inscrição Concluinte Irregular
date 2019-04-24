@@ -1,0 +1,23 @@
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Tradicional%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Tradicional'))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Administrativa%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Administrativa'))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Judicial%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Judicial'))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Total 1%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Tradicional', 'Administrativa', 'Judicial')))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like 'Dispensa%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" = 'Dispensa'))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Declaração de responsabilidade%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" ='Declaração de responsabilidade'))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Total 2%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Declaração de responsabilidade', 'Dispensa')))) ELSE 0 END
++
+CASE WHEN '@{v_form_inscr}{Tradicional}' like '%Total geral%'  
+then RSUM(FILTER("Inscrições"."Qtd Inscrição Concluinte Irregular" USING ("Tipo de Inscrição Adm"."Inscrição Adm" IN ('Administrativa', 'Declaração de responsabilidade', 'Dispensa', 'Judicial', 'Tradicional')))) ELSE 0 END
